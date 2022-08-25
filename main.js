@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
 	nameInput.value = username;
 
 	nameInput.addEventListener('change', (e) => {
-		localStorage.setItem('username', e.target.value); //การเก็บข้อมูลลงใน local Storage
+		localStorage.setItem('username', e.target.value); 
 	})
 
 	newTodoForm.addEventListener('submit', e => {
@@ -23,7 +23,7 @@ window.addEventListener('load', () => {
 
 		todos.push(todo);
 
-		localStorage.setItem('todos', JSON.stringify(todos)); // การเรียกใช้ข้อมูล key ของ local Storage
+		localStorage.setItem('todos', JSON.stringify(todos)); 
 
 		// Reset the form
 		e.target.reset();
@@ -84,7 +84,6 @@ function DisplayTodos () {
 			todo.done = e.target.checked;
 			localStorage.setItem('todos', JSON.stringify(todos)); 
 			
-			//สังเกตว่า Web Storage จะเก็บข้อมูลเป็น String ดังนั้น getProduct จึงต้องใช้ Json.stringify
 
 			if (todo.done) {
 				todoItem.classList.add('done');
@@ -103,7 +102,7 @@ function DisplayTodos () {
 			input.addEventListener('blur', (e) => {
 				input.setAttribute('readonly', true);
 				todo.content = e.target.value;
-				localStorage.setItem('todos', JSON.stringify(todos)); //การเรียกใช้ข้อมูล key ของ local Storeage
+				localStorage.setItem('todos', JSON.stringify(todos)); 
 				DisplayTodos()
 
 			})
@@ -111,10 +110,9 @@ function DisplayTodos () {
 
 		deleteButton.addEventListener('click', (e) => {
 			todos = todos.filter(t => t != todo);
-			localStorage.setItem('todos', JSON.stringify(todos)); //การเรียกใช้ข้อมูล key ของ local Storeage
+			localStorage.setItem('todos', JSON.stringify(todos));
 			DisplayTodos()
 		})
 
 	})
 }
-// run npx live-server
